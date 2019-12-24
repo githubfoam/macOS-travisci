@@ -1,7 +1,7 @@
 # macOS-travisci
 osx macOS travisci virtualenv
 
-[![Build Status](https://travis-ci.com/githubfoam/macOS-travis.svg?branch=dev)](https://travis-ci.com/githubfoam/macOS-travis)  
+[![Build Status](https://travis-ci.com/githubfoam/macOS-travisci.svg?branch=dev)](https://travis-ci.com/githubfoam/macOS-travisci)  
 
 ~~~~
 <https://travis-ci.community/c/environments/windows>

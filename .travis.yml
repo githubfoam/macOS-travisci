@@ -74,21 +74,8 @@ matrix:
   #     # after_success:
   #     #   - python 3 -m codecov
   #
-  #   - name: "Python 3.8 on Windows"
-  #     os: windows           # travis-ci-windows-1803-containers-1569974367-710c8b1d
-  #     language: shell
-  #     before_install:
-  #       - choco install python --version 3.8.1 # pinned python version
-  #       - python --version
-  #       - python -m pip install --upgrade pip
-  #       - pip3 install --upgrade pytest
-  #       - pip3 install codecov
-  #       - pip3 install virtualenv
-  #     env:
-  #       - PATH=/c/Python38:/c/Python38/Scripts:$PATH
 
   allow_failures:
-  #   - os: windows
   #   - os: osx
   #     osx_image: xcode10.2
     - os: osx

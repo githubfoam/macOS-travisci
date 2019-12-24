@@ -6,13 +6,14 @@ matrix:
     - name: "Python 2.7.17 on macOS xcode10.2"
       os: osx
       osx_image: xcode10.2  # travis-ci-macos10.14-xcode10.2-19-1573099784 (via amqp)
-      language: shell
+      language: shell # 'language: python' is an error on Travis CI macOS
       before_install:
         - pip install virtualenv
         - virtualenv -p $(which python2) ~venvpy2
         - source ~venvpy2/bin/activate
       install:
         - pip install codecov
+        - pip install -r requirements.txt
       script:
         - python3 --version
         - python2 --version
@@ -28,15 +29,16 @@ matrix:
     - name: "Python 3.7.5 on macOS xcode10.2"
       os: osx
       osx_image: xcode10.2  # travis-ci-macos10.14-xcode10.2-19-1573099784 (via amqp)
-      language: shell
+      language: shell # 'language: python' is an error on Travis CI macOS
       before_install:
         - pip3 install virtualenv
         - virtualenv -p $(which python3) ~venvpy3
         - source ~venvpy3/bin/activate
       install:
-        - pip3 install -U pip
-        - pip3 install -U pytest
+        # - pip3 install -U pip
+        # - pip3 install -U pytest
         - pip3 install codecov
+        - pip install -r requirements.txt
       script:
         - python3 --version
         - python2 --version
@@ -44,35 +46,32 @@ matrix:
         - whoami
         - pwd
         - pip3 list
-        # - python 3 -m pytest
-        # - pip install ".[test]" .
         - coverage run tests.py
       after_success:
         - codecov
         - deactivate
 
-  #   - name: "Python 3.7.5 on macOS xcode9.4 "
-  #     os: osx
-  #     osx_image: xcode9.4  # travis-ci-macos10.13-xcode9.4.1-19-1576204381
-  #     language: shell  # 'language: python' is an error on Travis CI macOS
-  #     before_install:
-  #       - python3 --version
-  #       - pip3 install -U pip
-  #       - pip3 install -U pytest
-  #       - pip3 install codecov
-  #       - pip3 install virtualenv
-  #     script:
-  #       # - python3 -m pytest
-  #       # - if [ "$TRAVIS_OS_NAME" = "osx" ]; then brew update          ; fi
-  #       - python3 --version
-  #       - echo $TRAVIS_OS_NAME
-  # # # cache: pip
-  #     # after_success:
-  #     #   - python 3 -m codecov
-  #
+    - name: "Python 3.7.5 on macOS xcode9.4 "
+      os: osx
+      osx_image: xcode9.4  # travis-ci-macos10.13-xcode9.4.1-19-1576204381
+      language: shell  # 'language: python' is an error on Travis CI macOS
+      before_install:
+        - pip3 install virtualenv
+        - virtualenv -p $(which python3) ~venvpy3
+        - source ~venvpy3/bin/activate
+      script:
+        - python3 --version
+        - python2 --version
+        - python --version
+        - whoami
+        - pwd
+        - pip3 list
+        - coverage run tests.py
+      after_success:
+        - codecov
+        - deactivate
+
 
   allow_failures:
-  #   - os: osx
-  #     osx_image: xcode10.2
     - os: osx
       osx_image: xcode9.4

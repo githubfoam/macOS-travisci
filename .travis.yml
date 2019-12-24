@@ -12,7 +12,7 @@ matrix:
         - virtualenv -p $(which python2) ~venvpy2
         - source ~venvpy2/bin/activate
       install:
-        - pip install pytest --user
+        # - pip install pytest --user
         # - pip install codecov --user
         - pip install codecov
       script:

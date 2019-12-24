@@ -56,7 +56,7 @@ matrix:
       before_install:
         - pip3 install virtualenv
         - virtualenv -p $(which python3) ~venvpy3
-        - source ~venvpy3/bin/activate && cd ~venvpy3
+        - source ~venvpy3/bin/activate
       install:
         - pip3 install codecov
         - pip install -r requirements.txt

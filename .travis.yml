@@ -44,7 +44,8 @@ matrix:
         - whoami
         - pwd
         - pip3 list
-        - python3 -m pytest
+        # - python 3 -m pytest
+        - pip install ".[test]" .
       after_success:
         - python 3 -m codecov
         - deactivate

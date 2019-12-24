@@ -1,5 +1,5 @@
 # macOS-travisci
-osx macOS travisci virtualenv
+osx macOS travisci virtualenv ansible
 
 [![Build Status](https://travis-ci.com/githubfoam/macOS-travisci.svg?branch=dev)](https://travis-ci.com/githubfoam/macOS-travisci)  
 
